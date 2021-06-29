@@ -1,0 +1,13 @@
+####DO NOT TOUCH!!!###
+####DO NOT TOUCH!!!###
+####DO NOT TOUCH!!!###
+####DO NOT TOUCH!!!###
+
+#price_rule(read, write), discount_code(read,write)
+API_KEY = "e87d5ebf9038b819f2f7979bbf92f301"
+PASSWORD = "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"
+SHOP_NAME = "epoque-store"
+
+API_KEY = "833fd488c5447c36b3f18caaec0df410"
+PASSWORD = "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"
+SHOP_NAME = "boomerangdev"

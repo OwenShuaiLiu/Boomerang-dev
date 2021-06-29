@@ -1,0 +1,34 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: verify-key-service
+spec:
+  selector:
+    app: verify-key
+  ports:
+  - protocol: "TCP"
+    port: 6013
+    targetPort: 5000
+  type: LoadBalancer
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: verify-key
+spec:
+  selector:
+    matchLabels:
+      app: verify-key
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        app: verify-key
+    spec:
+      containers:
+      - name: verify-key
+        image: verify-key:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5000

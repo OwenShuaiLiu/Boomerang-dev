@@ -1,0 +1,9 @@
+aws ecr create-repository --repository-name boomerang-dev-verify-key
+
+aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 058934635740.dkr.ecr.us-west-2.amazonaws.com/boomerang-dev-verify-key
+
+docker build -f Dockerfile -t verify-key:latest .
+
+docker tag verify-key 058934635740.dkr.ecr.us-west-2.amazonaws.com/boomerang-dev-verify-key
+
+docker push 058934635740.dkr.ecr.us-west-2.amazonaws.com/boomerang-dev-verify-key

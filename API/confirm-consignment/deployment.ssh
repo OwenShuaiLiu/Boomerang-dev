@@ -1,0 +1,14 @@
+aws ecr create-repository --repository-name boomerang-dev-confirm-consignment
+
+aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 058934635740.dkr.ecr.us-west-2.amazonaws.com/boomerang-dev-confirm-consignment
+
+docker build -f Dockerfile -t confirm-consignment:latest .
+
+docker run -p 5001:5000 confirm-consignment
+
+docker tag confirm-consignment 058934635740.dkr.ecr.us-west-2.amazonaws.com/boomerang-dev-confirm-consignment
+
+docker push 058934635740.dkr.ecr.us-west-2.amazonaws.com/boomerang-dev-confirm-consignment
+
+##docker file CMD
+##requirement libraries

@@ -1,0 +1,19 @@
+#send_notification
+docker build -t send_notification_api_image .
+docker run  -dit --name=send_notification_api -e FLASK_APP=send_notification.py -p 5011:5000 send_notification_api_image
+docker logs -f send_notification_api
+
+#verify_api
+docker build -t verify_key_api_image .
+docker run  -dit --name=verify_key_api -e FLASK_APP=verify_key.py -p 5013:5000 verify_key_api_image
+docker logs -f verify_key_api
+
+#create_shipment
+docker build -t create_shipment_api_image .
+docker run  -dit --name=create_shipment_api -e FLASK_APP=create_shipment.py -p 5015:5000 create_shipment_api_image
+docker logs -f create_shipment_api
+
+#create_consignment
+docker build -t create_consignment_api_image .
+docker run  -dit --name=create_consignment_api -e FLASK_APP=create_consignment_db.py -p 5017:5000 create_consignment_api_image
+docker logs -f create_consignment_api
